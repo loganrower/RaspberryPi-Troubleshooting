@@ -1,0 +1,25 @@
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+----------------------------
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+ctrl_interface_group=root
+ap_scan=1
+eapol_version=2
+update_config=0
+
+network={
+        disabled=0
+        auth_alg=OPEN
+        ssid="eduroam"
+        scan_ssid=1
+        key_mgmt=WPA-EAP
+        proto=WPA RSN
+        pairwise=CCMP TKIP
+        eap=PEAP
+        identity="USERNAME@oregonstate.edu"
+        anonymous_identity="USERNAME@oregonstate.edu"
+        password=hash:<ENCRYPTED-PASSWORD>
+        phase1="peaplabel=0"
+        phase2="auth=MSCHAPV2"
+}

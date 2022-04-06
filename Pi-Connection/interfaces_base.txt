@@ -1,0 +1,17 @@
+sudo nano /etc/network/interfaces
+----------------------------------
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# Include files from /etc/network/interfaces.d:
+
+auto lo
+
+iface lo inet loopback
+iface eth0 inet dhcp
+
+allow-hotplug wlan0
+
+iface wlan0 inet dhcp
+        pre-up wpa_supplicant -B -Dwext -i wlan0 -c/etc/wpa_supplicant/wpa_supp>
+        post-down killall -q wpa_supplicant
+
+

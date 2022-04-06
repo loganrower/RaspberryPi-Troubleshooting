@@ -1,0 +1,16 @@
+----------------------------------
+Change the wifi driver used by the Pi:
+
+sudo nano /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
+
+find :
+
+wpa_supplicant_driver="${wpa_supplicant_driver:-wext,-nl80211}"
+
+and edit it to looks like this:
+
+wpa_supplicant_driver="${wpa_supplicant_driver:-nl80211,wext}"
+
+
+
+
