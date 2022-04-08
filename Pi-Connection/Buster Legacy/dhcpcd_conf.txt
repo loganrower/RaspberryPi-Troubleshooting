@@ -1,0 +1,5 @@
+# Add to the end of the file the following three lines below
+
+interface wlan0
+env ifwireless=1
+env wpa_supplicant_driver=wext,n180211
